@@ -7,6 +7,17 @@ used by some websites to display large images in a convenient manner.
 This is a fork of the (visibly unmaintained) https://sourceforge.net/p/dezoomify
 This fork fixes bugs in the original version.
 
+## Docker version
+
+The [Dockerfile](https://github.com/ryanfb/dezoomify-py/blob/master/Dockerfile)
+defines a `/data` volume for storing output, and an `ENTRYPOINT` so that
+arguments can be passed in to the dockerized `dezoomify.py` script.
+
+An example of mapping the current working directory to `/data` and downloading
+an image with Docker might look like:
+
+    docker run -v $(pwd):/data ryanfb/dezoomify url /data/example.jpg
+
 ## Installing
 
 Dezoomify should not require any installation. Simply run
